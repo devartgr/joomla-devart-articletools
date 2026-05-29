@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+    <update>
+        <name>DevArt Article Tools</name>
+        <description>DevArt Article Tools for Joomla</description>
+        <element>devartarticletools</element>
+        <type>plugin</type>
+        <group>content</group>
+        <version>1.0.3</version>
+
+        <infourl title="DevArt Article Tools">https://github.com/devartgr/joomla-devart-articletools</infourl>
+
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/devartgr/joomla-devart-articletools/releases/download/v1.0.3/plg_content_devartarticletools_v1.0.3.zip</downloadurl>
+        </downloads>
+
+        <sha256>4c1e7e10f15e41aa9d8710637e5dc4cf9a5931888ad2f37c9570056070a6900d</sha256>
+
+        <changelogurl>https://raw.githubusercontent.com/devartgr/joomla-devart-articletools/main/changelog.xml</changelogurl>
+
+        <targetplatform name="joomla" version="6.*" />
+        <php_minimum>8.2</php_minimum>
+
+        <maintainer>Kostas Stathopoulos</maintainer>
+        <maintainerurl>https://devart.gr</maintainerurl>
+    </update>
+</updates>
