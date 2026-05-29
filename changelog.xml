@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelogs>
+
+    <changelog>
+        <element>devartarticletools</element>
+        <type>plugin</type>
+        <group>content</group>
+        <version>1.0.3</version>
+
+        <fix>
+            <item>Removed external CSS asset dependency</item>
+            <item>Fixed potential stylesheet loading issues on some Joomla installations</item>
+            <item>Fixed frontend rendering dependency on external plugin CSS file</item>
+        </fix>
+
+        <change>
+            <item>Replaced external CSS loading with lightweight inline CSS rendering</item>
+            <item>Improved compatibility across Joomla 6 hosting environments</item>
+            <item>Improved reliability for production and high-traffic websites</item>
+            <item>Reduced risk of missing asset issues during installation and updates</item>
+        </change>
+
+        <security>
+            <item>Added GPL license notices required for Joomla Extensions Directory compliance</item>
+            <item>Improved extension packaging and JED submission readiness</item>
+        </security>
+
+        <note>
+            <item>This is a maintenance and stability release</item>
+            <item>No database changes required</item>
+            <item>No configuration changes required</item>
+            <item>Recommended update for all users of version 1.0.0, 1.0.1 and 1.0.2</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>devartarticletools</element>
+        <type>plugin</type>
+        <group>content</group>
+        <version>1.0.0</version>
+
+        <addition>
+            <item>Added inside1 article position support</item>
+            <item>Added inside2 article position support</item>
+            <item>Added article tools rendering inside Joomla articles</item>
+            <item>Added intro text enhancement support</item>
+            <item>Added anti-duplicate processing protection</item>
+            <item>Added Glomex compatibility support</item>
+            <item>Added Joomla 6 native plugin architecture</item>
+            <item>Added Joomla Update Server support</item>
+        </addition>
+
+        <change>
+            <item>Optimized for editorial and news websites</item>
+            <item>Designed to work without template overrides</item>
+            <item>Lightweight frontend rendering with minimal overhead</item>
+        </change>
+
+        <security>
+            <item>Added Joomla ACL integration</item>
+            <item>Added CSRF protected administrator workflows</item>
+            <item>Added Joomla 6 and PHP 8.2+ compatibility requirements</item>
+        </security>
+
+        <note>
+            <item>Initial public release for Joomla 6 websites</item>
+            <item>Always test on a staging environment before using in production</item>
+        </note>
+    </changelog>
+
+</changelogs>
