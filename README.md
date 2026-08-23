@@ -176,7 +176,7 @@ Repository validation does not replace Joomla runtime QA.
 | | |
 |---|---|
 | **File** | `pkg_devartarticletools_v2.1.0.zip` |
-| **SHA-256** | `c6632d1e3e19fe540bceae8fef20b0cd94f9a6812c73713c93f1a44d731afb43` |
+| **SHA-256** | `75f1495183d0af47a7a0579fe5da00d915169f672875b73d63cafdf8a1a642ee` |
 
 ---
 
