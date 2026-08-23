@@ -2,69 +2,177 @@
 <changelogs>
 
     <changelog>
-        <element>devartarticletools</element>
-        <type>plugin</type>
-        <group>content</group>
-        <version>1.0.3</version>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.1.0</version>
 
-        <fix>
-            <item>Removed external CSS asset dependency</item>
-            <item>Fixed potential stylesheet loading issues on some Joomla installations</item>
-            <item>Fixed frontend rendering dependency on external plugin CSS file</item>
-        </fix>
+        <addition>
+            <item>First public Joomla 6 suite release since the plugin-only line at 1.0.3 (intermediate 1.0.4–1.0.6 and 2.0.x builds were not published)</item>
+            <item>Suite shell com_devartarticletools with dashboard hub, Settings, Schema and Legacy Migration</item>
+            <item>Child components with own config.xml, access.xml and ACL: Article Photo, Social Cards, Recent Articles, Social Share and Authors</item>
+            <item>Content plugin plg_content_devartarticletools for inside1/inside2 module positions and intro styling (SubscriberInterface)</item>
+            <item>Social Share content plugin and Open Graph system plugin (SubscriberInterface)</item>
+            <item>Schema system plugin plg_system_devartarticletools for Article JSON-LD (disabled by default)</item>
+            <item>Administrator module mod_devartarticletools_recent with Control Panel (cpanel) placement on install/update; publish is opt-in via Recent Articles → Options → Installer</item>
+            <item>Authors: groups, profiles, virtual authors, SEF pages, list/card layouts and performance-oriented article queries</item>
+            <item>15 packaged locales: en-GB, el-GR, fr-FR, de-DE, es-ES, it-IT, pt-PT, cs-CZ, nl-NL, pl-PL, ru-RU, uk-UA, ja-JP, tr-TR, zh-CN</item>
+            <item>Hub summaries and product intros across dashboard child apps</item>
+        </addition>
 
         <change>
-            <item>Replaced external CSS loading with lightweight inline CSS rendering</item>
-            <item>Improved compatibility across Joomla 6 hosting environments</item>
-            <item>Improved reliability for production and high-traffic websites</item>
-            <item>Reduced risk of missing asset issues during installation and updates</item>
+            <item>Product identity moves from standalone content plugin ZIP to package-only updates (pkg_devartarticletools)</item>
+            <item>Joomla native updates target the package; content plugin element devartarticletools is unchanged for Positions/Intro runtime</item>
+            <item>Positions and Intro settings migrate from legacy plugin params to the suite component on first package install</item>
+            <item>Photo, Social Cards, Recent Articles and Social Share settings migrate from the shell component to their child components</item>
+            <item>PHP minimum raised to 8.3.0; Joomla 6+ only</item>
+            <item>Package update server and changelog use repository root update.xml and changelog.xml (Slider/Widgets/Exts pattern)</item>
         </change>
 
         <security>
-            <item>Added GPL license notices required for Joomla Extensions Directory compliance</item>
-            <item>Improved extension packaging and JED submission readiness</item>
+            <item>Schema and Open Graph article loaders enforce published state, visitor access levels and publish_up/publish_down windows</item>
+            <item>Open Graph queries use DatabaseInterface with whereIn and bound parameters</item>
+            <item>Shell administrator href attributes are HTML-escaped</item>
+            <item>Social Share copy uses Clipboard API only (no document.execCommand fallback)</item>
+            <item>defined(_JEXEC) on package and component installer scripts; GPL headers on Authors templates</item>
         </security>
 
+        <fix>
+            <item>ReturnUrlHelper uses plain base64_encode (no string obfuscation)</item>
+            <item>Removed stale feature_socialmeta language strings and dead Socialmeta administrator views</item>
+            <item>Brand footers use language keys across suite child apps</item>
+            <item>Documented intentional admin-only filter=raw for Social Share og_custom_rules</item>
+        </fix>
+
         <note>
-            <item>This is a maintenance and stability release</item>
-            <item>No database changes required</item>
-            <item>No configuration changes required</item>
-            <item>Recommended update for all users of version 1.0.0, 1.0.1 and 1.0.2</item>
+            <item>Public release replacing the previous GitHub line at content plugin 1.0.3</item>
+            <item>Sites on plugin 1.0.3: install pkg_devartarticletools_v2.1.0.zip once; Positions/Intro params migrate automatically; later updates use Joomla native package updates</item>
+            <item>Legacy DevArt Article Photo, Social Cards and Backend Tools are detected but never silent-uninstalled</item>
+            <item>Disable legacy standalone injectors manually if they duplicate Open Graph or share output</item>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Recommended update for all DevArt Article Tools installations on 1.0.3 or earlier</item>
         </note>
     </changelog>
 
     <changelog>
         <element>devartarticletools</element>
         <type>plugin</type>
-        <group>content</group>
-        <version>1.0.0</version>
-
-        <addition>
-            <item>Added inside1 article position support</item>
-            <item>Added inside2 article position support</item>
-            <item>Added article tools rendering inside Joomla articles</item>
-            <item>Added intro text enhancement support</item>
-            <item>Added anti-duplicate processing protection</item>
-            <item>Added Glomex compatibility support</item>
-            <item>Added Joomla 6 native plugin architecture</item>
-            <item>Added Joomla Update Server support</item>
-        </addition>
+        <folder>content</folder>
+        <version>2.1.0</version>
 
         <change>
-            <item>Optimized for editorial and news websites</item>
-            <item>Designed to work without template overrides</item>
-            <item>Lightweight frontend rendering with minimal overhead</item>
+            <item>Legacy content-plugin update channel now offers the suite package pkg_devartarticletools_v2.1.0.zip for sites still on plugin-only 1.0.3 installs</item>
+            <item>After installing the package once, use Joomla Updates on pkg_devartarticletools for future releases</item>
         </change>
 
-        <security>
-            <item>Added Joomla ACL integration</item>
-            <item>Added CSRF protected administrator workflows</item>
-            <item>Added Joomla 6 and PHP 8.2+ compatibility requirements</item>
-        </security>
+        <note>
+            <item>Plugin element and folder are unchanged (content / devartarticletools)</item>
+            <item>Install the package ZIP; do not use the old plg_content_devartarticletools standalone ZIP on new sites</item>
+        </note>
+    </changelog>
 
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.0.64</version>
+        <fix>
+            <item>Social Share HtmlView uses DatabaseInterface instead of DatabaseDriver string lookup</item>
+            <item>Remove stale feature_socialmeta language strings and dead Socialmeta view/tmpl</item>
+            <item>ReturnUrlHelper uses plain base64_encode; Social Share copy uses Clipboard API only</item>
+            <item>Brand footers use language keys; smoke-herd accepts DEVART_JOOMLA_CLI env overrides</item>
+            <item>Document intentional filter=raw for og_custom_rules (admin-only) in Options description and API policy</item>
+        </fix>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.0.63</version>
+        <fix>
+            <item>Add defined(_JEXEC) guards to package, Authors and Recent Articles installer scripts</item>
+            <item>Add GPL license headers to all Authors admin and site template files (JED hygiene)</item>
+        </fix>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.0.62</version>
+        <fix>
+            <item>Open Graph article loader uses DatabaseInterface with whereIn and bound publish parameters</item>
+            <item>Social Share content plugin listens via SubscriberInterface (AfterTitle/AfterDisplay events)</item>
+            <item>Shell dashboard and settings hub href attributes are HTML-escaped</item>
+            <item>Remove unused settings/default_socialmeta.php leftover template</item>
+        </fix>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.0.61</version>
+        <fix>
+            <item>Schema system plugin loads articles only when published, within publish window, and visible to the visitor access levels</item>
+            <item>Package update server and changelog URLs point to source/package/ metadata; root update.xml and changelog.xml synced for existing installs</item>
+        </fix>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.0.60</version>
+        <change>
+            <item>Phase 3 i18n: add cs-CZ, nl-NL, pl-PL, ru-RU, uk-UA, ja-JP, tr-TR and zh-CN across all 25 reference language files</item>
+            <item>Hub summaries for Authors, Social Cards, Article Photo and Recent Articles across all 15 packaged locales</item>
+            <item>Roboto Condensed Apache License notice added beside DejaVu license in Social Cards</item>
+        </change>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.0.0</version>
+        <addition>
+            <item>Suite release: com_devartarticletools control centre with modular Feature layout</item>
+            <item>Recent Articles feature and administrator module mod_devartarticletools_recent</item>
+            <item>System plugin plg_system_devartarticletools (disabled by default) for feature-flagged schema</item>
+            <item>Legacy Migration detection for Photo, Social Cards, and Backend Tools (never silent uninstall)</item>
+        </addition>
+        <change>
+            <item>Major internal version jump from plugin-only 1.0.x to suite 2.0.x (unpublished development line)</item>
+        </change>
+    </changelog>
+
+    <changelog>
+        <element>devartarticletools</element>
+        <type>plugin</type>
+        <folder>content</folder>
+        <version>1.0.3</version>
+        <fix>
+            <item>Removed external CSS asset dependency</item>
+            <item>Fixed potential stylesheet loading issues on some Joomla installations</item>
+            <item>Fixed frontend rendering dependency on external plugin CSS file</item>
+        </fix>
+        <change>
+            <item>Replaced external CSS loading with lightweight inline CSS rendering</item>
+            <item>Improved compatibility across Joomla 6 hosting environments</item>
+        </change>
+        <note>
+            <item>Last public plugin-only release before the 2.1.0 suite package</item>
+            <item>No database changes required</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>devartarticletools</element>
+        <type>plugin</type>
+        <folder>content</folder>
+        <version>1.0.0</version>
+        <addition>
+            <item>inside1 and inside2 article module positions without template overrides</item>
+            <item>Intro text styling controls</item>
+            <item>Joomla 6 native content plugin architecture</item>
+        </addition>
         <note>
             <item>Initial public release for Joomla 6 websites</item>
-            <item>Always test on a staging environment before using in production</item>
         </note>
     </changelog>
 

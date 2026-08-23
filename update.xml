@@ -2,26 +2,45 @@
 <updates>
     <update>
         <name>DevArt Article Tools</name>
-        <description>DevArt Article Tools for Joomla</description>
+        <description>Joomla 6 suite: article module positions, intro styling, Article Photo, Social Cards, Recent Articles, Social Share, Authors, and administrator utilities.</description>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <client>site</client>
+        <version>2.1.0</version>
+        <infourl title="DevArt Article Tools">https://github.com/devartgr/joomla-devart-articletools</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.1.0/pkg_devartarticletools_v2.1.0.zip</downloadurl>
+        </downloads>
+        <sha256>c6632d1e3e19fe540bceae8fef20b0cd94f9a6812c73713c93f1a44d731afb43</sha256>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <changelogurl>https://raw.githubusercontent.com/devartgr/joomla-devart-articletools/main/changelog.xml</changelogurl>
+        <targetplatform name="joomla" version="6.*" />
+        <php_minimum>8.3.0</php_minimum>
+        <maintainer>Kostas Stathopoulos - DevArt</maintainer>
+        <maintainerurl>https://devart.gr</maintainerurl>
+    </update>
+    <update>
+        <name>DevArt Article Tools</name>
+        <description>Legacy content-plugin update channel for sites still on plugin-only 1.0.3 — installs the suite package pkg_devartarticletools.</description>
         <element>devartarticletools</element>
         <type>plugin</type>
-        <group>content</group>
-        <version>1.0.3</version>
-
+        <folder>content</folder>
+        <client>site</client>
+        <version>2.1.0</version>
         <infourl title="DevArt Article Tools">https://github.com/devartgr/joomla-devart-articletools</infourl>
-
         <downloads>
-            <downloadurl type="full" format="zip">https://github.com/devartgr/joomla-devart-articletools/releases/download/v1.0.3/plg_content_devartarticletools_v1.0.3.zip</downloadurl>
+            <downloadurl type="full" format="zip">https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.1.0/pkg_devartarticletools_v2.1.0.zip</downloadurl>
         </downloads>
-
-        <sha256>4c1e7e10f15e41aa9d8710637e5dc4cf9a5931888ad2f37c9570056070a6900d</sha256>
-
+        <sha256>c6632d1e3e19fe540bceae8fef20b0cd94f9a6812c73713c93f1a44d731afb43</sha256>
+        <tags>
+            <tag>stable</tag>
+        </tags>
         <changelogurl>https://raw.githubusercontent.com/devartgr/joomla-devart-articletools/main/changelog.xml</changelogurl>
-
         <targetplatform name="joomla" version="6.*" />
-        <php_minimum>8.2</php_minimum>
-
-        <maintainer>Kostas Stathopoulos</maintainer>
+        <php_minimum>8.3.0</php_minimum>
+        <maintainer>Kostas Stathopoulos - DevArt</maintainer>
         <maintainerurl>https://devart.gr</maintainerurl>
     </update>
 </updates>
