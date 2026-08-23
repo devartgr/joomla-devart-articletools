@@ -2,7 +2,7 @@
 <updates>
     <update>
         <name>DevArt Article Tools</name>
-        <description>Joomla 6 suite: article module positions, intro styling, Article Photo, Social Cards, Recent Articles, Social Share, Authors, and administrator utilities.</description>
+        <description>DevArt Article Tools for Joomla - Article suite</description>
         <element>pkg_devartarticletools</element>
         <type>package</type>
         <client>site</client>
@@ -18,29 +18,25 @@
         <changelogurl>https://raw.githubusercontent.com/devartgr/joomla-devart-articletools/main/changelog.xml</changelogurl>
         <targetplatform name="joomla" version="6.*" />
         <php_minimum>8.3.0</php_minimum>
-        <maintainer>Kostas Stathopoulos - DevArt</maintainer>
+        <maintainer>Kostas Stathopoulos</maintainer>
         <maintainerurl>https://devart.gr</maintainerurl>
     </update>
     <update>
         <name>DevArt Article Tools</name>
-        <description>Legacy content-plugin update channel for sites still on plugin-only 1.0.3 — installs the suite package pkg_devartarticletools.</description>
+        <description>DevArt Article Tools for Joomla</description>
         <element>devartarticletools</element>
         <type>plugin</type>
-        <folder>content</folder>
-        <client>site</client>
+        <group>content</group>
         <version>2.1.0</version>
         <infourl title="DevArt Article Tools">https://github.com/devartgr/joomla-devart-articletools</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.1.0/pkg_devartarticletools_v2.1.0.zip</downloadurl>
         </downloads>
         <sha256>c6632d1e3e19fe540bceae8fef20b0cd94f9a6812c73713c93f1a44d731afb43</sha256>
-        <tags>
-            <tag>stable</tag>
-        </tags>
         <changelogurl>https://raw.githubusercontent.com/devartgr/joomla-devart-articletools/main/changelog.xml</changelogurl>
         <targetplatform name="joomla" version="6.*" />
         <php_minimum>8.3.0</php_minimum>
-        <maintainer>Kostas Stathopoulos - DevArt</maintainer>
+        <maintainer>Kostas Stathopoulos</maintainer>
         <maintainerurl>https://devart.gr</maintainerurl>
     </update>
 </updates>
