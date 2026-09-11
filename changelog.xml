@@ -4,6 +4,33 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.1.1</version>
+
+        <addition>
+            <item>Social Cards: Split Card template (text / image columns, optional flip, image width %)</item>
+            <item>Social Cards: Strips Card template (dark surface, staggered vertical image strips, native GD only)</item>
+            <item>Social Cards: Arrow Card template (pointed dark panel over full-bleed image, overlay opacity, panel width)</item>
+            <item>Social Cards: Slant Card template (light panel with diagonal cut, theme accent bar, image height / slant depth)</item>
+            <item>Social Cards: Title uppercase switcher for all templates (Greek tonos removed on capitals)</item>
+        </addition>
+
+        <change>
+            <item>Social Cards: Overlay Card and Clean Card with Color Themes, overlay controls, accent line, and title/subtitle size and position</item>
+            <item>Social Cards creator: Joomla Yes/No switchers, options-form grouping, badge position, larger preview, tuned defaults</item>
+            <item>Social Cards: accent line uses theme colour; horizontal line at 50% text width; title/subtitle collision avoidance</item>
+            <item>Social Cards: cover image clipped to destination zone (fixes Split/Clean bleed); Clean text clipped when image is bottom</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.1.1.zip over 2.1.0</item>
+            <item>All Social Cards templates use native PHP GD only</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.1.0</version>
 
         <addition>

@@ -4,7 +4,7 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-2.1.0-orange)
+![Release](https://img.shields.io/badge/Version-2.1.1-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -19,13 +19,19 @@ Designed for reliability, performance, Joomla-native architecture, and safe coex
 
 ---
 
-## Version 2.1.0
+## Version 2.1.1
 
-DevArt Article Tools **2.1.0** is the current **public** release.
+DevArt Article Tools **2.1.1** is the current **public** release.
 
-This is the first public release since the plugin-only line at **1.0.3**. Intermediate builds were development-only and were not published.
+### Highlights in 2.1.1
 
-### Highlights in 2.1.0
+**Social Cards**
+- New templates: **Split**, **Strips**, **Arrow**, **Slant** (native PHP GD only)
+- Overlay and Clean polish with Color Themes, Yes/No switchers, accent line, collision avoidance
+- Title uppercase switcher (Greek tonos removed on capitals)
+- Arrow overlay opacity; theme-coloured accent line; cover image clipping fixes
+
+### From 2.1.0
 
 **Core article tools**
 - **Positions / Intro** — `inside1` and `inside2` module positions inside articles; optional intro typography
@@ -81,15 +87,19 @@ Package ID: `pkg_devartarticletools`
 
 Download the latest release:
 
-[`pkg_devartarticletools_v2.1.0.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.1.0/pkg_devartarticletools_v2.1.0.zip)
+[`pkg_devartarticletools_v2.1.1.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.1.1/pkg_devartarticletools_v2.1.1.zip)
 
 Install via **System → Install → Extensions**.
 
 Do **not** install the old standalone `plg_content_devartarticletools_v*.zip` on new sites.
 
+### Upgrade from 2.1.0
+
+Install **`pkg_devartarticletools_v2.1.1.zip`** over 2.1.0 (Extensions → Install, or Joomla Update).
+
 ### Upgrade from plugin 1.0.3
 
-Install the 2.1.0 package ZIP once (Extensions → Install, or Joomla Update if offered on the legacy plugin channel).
+Install the suite package ZIP once (Extensions → Install, or Joomla Update if offered on the legacy plugin channel).
 
 - Positions / Intro plugin parameters migrate automatically to the suite component
 - After the first package install, future updates use Joomla native **package** updates (`pkg_devartarticletools`)
@@ -105,7 +115,7 @@ Updates are **package-only** after the first suite install. The package manifest
 
 `https://raw.githubusercontent.com/devartgr/joomla-devart-articletools/main/update.xml`
 
-Sites still on plugin-only **1.0.3** may discover 2.1.0 through the legacy content-plugin update channel; the offered download is the same suite package ZIP.
+Sites still on plugin-only **1.0.3** may discover the suite package through the legacy content-plugin update channel; the offered download is the same suite package ZIP.
 
 All suite extensions update together as one package.
 
@@ -171,12 +181,12 @@ Repository validation does not replace Joomla runtime QA.
 
 ---
 
-## Integrity (2.1.0)
+## Integrity (2.1.1)
 
 | | |
 |---|---|
-| **File** | `pkg_devartarticletools_v2.1.0.zip` |
-| **SHA-256** | `75f1495183d0af47a7a0579fe5da00d915169f672875b73d63cafdf8a1a642ee` |
+| **File** | `pkg_devartarticletools_v2.1.1.zip` |
+| **SHA-256** | `2f3ffd3301340f4c126bb2199480d9805c8b2128cd78069e38a9abe09e87a581` |
 
 ---
 
