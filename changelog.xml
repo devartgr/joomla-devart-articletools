@@ -4,6 +4,32 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.2.0</version>
+
+        <addition>
+            <item>Schema app (com_devartarticletools_schema): admin hub under Article Tools for schema rules</item>
+            <item>Schema: New/Edit rule form (article or category target, Article/Service/Product/WebPage fields stored as JSON payload)</item>
+            <item>Schema rules storage table and Options (enable flag + default type Article, enabled on install)</item>
+            <item>System schema plugin reads Schema app settings and applies New rules as overrides</item>
+        </addition>
+
+        <change>
+            <item>Schema hub: working New action and edit links for override rules</item>
+            <item>Suite-owned ItemSelect article picker in com_devartarticletools (Schema, Authors, Social Cards; no Slider dependency)</item>
+            <item>Schema JSON-LD: Product nests brand/offers; Service nests provider; clean media URLs; strip competing Article when override is non-Article</item>
+            <item>Suite Options: removed duplicate Schema switch; Schema is managed only under Article Tools → Schema</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.0.zip over 2.1.1</item>
+            <item>Default schema is Article for all articles; New rules override specific articles or categories</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.1.1</version>
 
         <addition>

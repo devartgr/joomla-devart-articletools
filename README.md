@@ -4,7 +4,7 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-2.1.1-orange)
+![Release](https://img.shields.io/badge/Version-2.2.0-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -13,23 +13,32 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 DevArt Article Tools is a production **package** for Joomla 6 editorial websites: news portals, magazines, publishers, and high-traffic content sites.
 
-The suite ships one shell component, five child components, four plugins, and one administrator module. Positions and Intro still run through the familiar content plugin (`plg_content_devartarticletools`).
+The suite ships one shell component, six child components, four plugins, and one administrator module. Positions and Intro still run through the familiar content plugin (`plg_content_devartarticletools`).
 
 Designed for reliability, performance, Joomla-native architecture, and safe coexistence with legacy DevArt products.
 
 ---
 
-## Version 2.1.1
+## Version 2.2.0
 
-DevArt Article Tools **2.1.1** is the current **public** release.
+DevArt Article Tools **2.2.0** is the current **public** release.
 
-### Highlights in 2.1.1
+### Highlights in 2.2.0
+
+**Schema**
+- Dedicated Schema app (`com_devartarticletools_schema`) under Article Tools
+- Default **Article** JSON-LD for all articles (enabled on install)
+- New rules override specific articles or categories: Article / Service / Product / WebPage
+- Product emits nested `brand` + `offers`; Service nests `provider`
+- Suite-owned ItemSelect article picker (no DevArt Slider dependency)
+- Competing Article JSON-LD from other extensions is stripped when a non-Article override is active
+
+### From 2.1.1
 
 **Social Cards**
-- New templates: **Split**, **Strips**, **Arrow**, **Slant** (native PHP GD only)
+- Templates: **Split**, **Strips**, **Arrow**, **Slant** (native PHP GD only)
 - Overlay and Clean polish with Color Themes, Yes/No switchers, accent line, collision avoidance
 - Title uppercase switcher (Greek tonos removed on capitals)
-- Arrow overlay opacity; theme-coloured accent line; cover image clipping fixes
 
 ### From 2.1.0
 
@@ -69,15 +78,16 @@ Package ID: `pkg_devartarticletools`
 
 | Extension | Type | Purpose |
 |-----------|------|---------|
-| `com_devartarticletools` | Component | Suite shell: dashboard, settings, schema options, legacy migration |
+| `com_devartarticletools` | Component | Suite shell: dashboard, settings, legacy migration |
 | `com_devartarticletools_photo` | Component | Article Photo |
 | `com_devartarticletools_socialcards` | Component | Social Cards |
 | `com_devartarticletools_recent` | Component | Recent Articles |
 | `com_devartarticletools_socialshare` | Component | Social Share and Open Graph options |
 | `com_devartarticletools_authors` | Component | Authors |
+| `com_devartarticletools_schema` | Component | Schema rules and defaults |
 | `plg_content_devartarticletools` | Content plugin | Positions / Intro runtime |
 | `plg_content_devartarticletools_socialshare` | Content plugin | Social Share buttons |
-| `plg_system_devartarticletools` | System plugin | Article JSON-LD schema (disabled by default) |
+| `plg_system_devartarticletools` | System plugin | Article JSON-LD schema |
 | `plg_system_devartarticletools_opengraph` | System plugin | Open Graph metadata |
 | `mod_devartarticletools_recent` | Administrator module | Recent Articles Control Panel widget |
 
@@ -87,15 +97,19 @@ Package ID: `pkg_devartarticletools`
 
 Download the latest release:
 
-[`pkg_devartarticletools_v2.1.1.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.1.1/pkg_devartarticletools_v2.1.1.zip)
+[`pkg_devartarticletools_v2.2.0.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.2.0/pkg_devartarticletools_v2.2.0.zip)
 
 Install via **System → Install → Extensions**.
 
 Do **not** install the old standalone `plg_content_devartarticletools_v*.zip` on new sites.
 
+### Upgrade from 2.1.1
+
+Install **`pkg_devartarticletools_v2.2.0.zip`** over 2.1.1 (Extensions → Install, or Joomla Update).
+
 ### Upgrade from 2.1.0
 
-Install **`pkg_devartarticletools_v2.1.1.zip`** over 2.1.0 (Extensions → Install, or Joomla Update).
+Install **`pkg_devartarticletools_v2.2.0.zip`** over 2.1.0 (or update stepwise via Joomla Update).
 
 ### Upgrade from plugin 1.0.3
 
@@ -181,12 +195,12 @@ Repository validation does not replace Joomla runtime QA.
 
 ---
 
-## Integrity (2.1.1)
+## Integrity (2.2.0)
 
 | | |
 |---|---|
-| **File** | `pkg_devartarticletools_v2.1.1.zip` |
-| **SHA-256** | `2f3ffd3301340f4c126bb2199480d9805c8b2128cd78069e38a9abe09e87a581` |
+| **File** | `pkg_devartarticletools_v2.2.0.zip` |
+| **SHA-256** | `3fbf7504e501599e848e3dc0ad479d81824c7e581c8e2a2d10cee2bd6e2658e3` |
 
 ---
 
