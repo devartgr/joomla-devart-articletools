@@ -4,7 +4,7 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-2.2.0-orange)
+![Release](https://img.shields.io/badge/Version-2.2.1-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -19,11 +19,27 @@ Designed for reliability, performance, Joomla-native architecture, and safe coex
 
 ---
 
-## Version 2.2.0
+## Version 2.2.1
 
-DevArt Article Tools **2.2.0** is the current **public** release.
+DevArt Article Tools **2.2.1** is the current **public** release.
 
-### Highlights in 2.2.0
+### Highlights in 2.2.1
+
+**Social Share**
+- Icons only display mode (clean icon buttons without text labels)
+- Color theme: Default (network colours), or Red / Blue / Green / Orange / Yellow / Gray / Black for all buttons
+- Hub shows human-readable plugin status labels
+
+**Authors**
+- Admin list checkboxes so Edit/Delete toolbar selection works (profiles and groups)
+- Fixed delete return-type mismatch with Joomla AdminController
+- Missing `N_ITEMS_*` language strings for delete/publish messages
+
+**Joomla 7 prep**
+- Article Photo uses application `getInput()`
+- Authors loads users via `UserFactoryInterface`
+
+### From 2.2.0
 
 **Schema**
 - Dedicated Schema app (`com_devartarticletools_schema`) under Article Tools
@@ -97,19 +113,23 @@ Package ID: `pkg_devartarticletools`
 
 Download the latest release:
 
-[`pkg_devartarticletools_v2.2.0.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.2.0/pkg_devartarticletools_v2.2.0.zip)
+[`pkg_devartarticletools_v2.2.1.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.2.1/pkg_devartarticletools_v2.2.1.zip)
 
 Install via **System → Install → Extensions**.
 
 Do **not** install the old standalone `plg_content_devartarticletools_v*.zip` on new sites.
 
+### Upgrade from 2.2.0
+
+Install **`pkg_devartarticletools_v2.2.1.zip`** over 2.2.0 (Extensions → Install, or Joomla Update).
+
 ### Upgrade from 2.1.1
 
-Install **`pkg_devartarticletools_v2.2.0.zip`** over 2.1.1 (Extensions → Install, or Joomla Update).
+Install **`pkg_devartarticletools_v2.2.1.zip`** over 2.1.1 (or update stepwise via Joomla Update).
 
 ### Upgrade from 2.1.0
 
-Install **`pkg_devartarticletools_v2.2.0.zip`** over 2.1.0 (or update stepwise via Joomla Update).
+Install **`pkg_devartarticletools_v2.2.1.zip`** over 2.1.0 (or update stepwise via Joomla Update).
 
 ### Upgrade from plugin 1.0.3
 
@@ -195,12 +215,12 @@ Repository validation does not replace Joomla runtime QA.
 
 ---
 
-## Integrity (2.2.0)
+## Integrity (2.2.1)
 
 | | |
 |---|---|
-| **File** | `pkg_devartarticletools_v2.2.0.zip` |
-| **SHA-256** | `3fbf7504e501599e848e3dc0ad479d81824c7e581c8e2a2d10cee2bd6e2658e3` |
+| **File** | `pkg_devartarticletools_v2.2.1.zip` |
+| **SHA-256** | `aa5f73cf188ce4bd3cc6a183ed0b27c30849399c949c8c3b7a106e62dbffe436` |
 
 ---
 

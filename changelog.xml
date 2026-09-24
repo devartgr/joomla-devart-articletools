@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelogs>
 
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.1</version>
+
+        <addition>
+            <item>Social Share: Icons only display mode (clean icon buttons without text labels)</item>
+            <item>Social Share: Color theme option (default network colours, or red/blue/green/orange/yellow/gray/black for all buttons)</item>
+        </addition>
+
+        <change>
+            <item>Joomla 7 prep: application input via getInput() in Article Photo</item>
+            <item>Joomla 7 prep: AuthorModel loads users via UserFactoryInterface instead of Factory::getUser()</item>
+            <item>Authors: admin list checkboxes for profiles and groups so Edit/Delete toolbar selection works</item>
+            <item>Authors: fix delete() return type mismatch (AdminController returns void)</item>
+            <item>Authors: add missing N_ITEMS_* language strings for delete/publish messages</item>
+            <item>Social Share hub: human-readable plugin status labels</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.1.zip over 2.2.0</item>
+            <item>Social Share default remains Icons and labels + Default colour theme; change under Social Share → Options</item>
+        </note>
+    </changelog>
+
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
