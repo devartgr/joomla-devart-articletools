@@ -121,9 +121,8 @@
     </changelog>
 
     <changelog>
-        <element>devartarticletools</element>
-        <type>plugin</type>
-        <group>content</group>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>1.0.3</version>
 
         <fix>
@@ -153,9 +152,8 @@
     </changelog>
 
     <changelog>
-        <element>devartarticletools</element>
-        <type>plugin</type>
-        <group>content</group>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>1.0.0</version>
 
         <addition>
