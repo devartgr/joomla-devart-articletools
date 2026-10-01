@@ -4,7 +4,7 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-2.2.1-orange)
+![Release](https://img.shields.io/badge/Version-2.2.2-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -19,64 +19,51 @@ Designed for reliability, performance, Joomla-native architecture, and safe coex
 
 ---
 
-## Version 2.2.1
+## Version 2.2.2
 
-DevArt Article Tools **2.2.1** is the current **public** release.
+DevArt Article Tools **2.2.2** is the current **public** release (hardening).
 
-### Highlights in 2.2.1
+### Highlights in 2.2.2
+
+**Security**
+- Schema JSON-LD encoded with `JSON_HEX_*`
+- Authors website/social links limited to http/https/mailto
+- Photo / Social Cards media paths confined to `images/`
+- Authors / Schema / Open Graph require published categories and matching access
+
+**Performance and Joomla 7 prep**
+- Content plugins use WebAssetManager + static `media/` CSS/JS (no inline declarations)
+- Canonical article URLs without query/fragment for schema, Open Graph, and Social Share
+- Shared `VisibleArticleLoader` with per-request memo for Schema + Open Graph
+- Cached `information_schema` index probes (`SchemaIndexProbe`)
+- Schema / Open Graph skip the loader when the suite shell component is missing
+
+**Recent Articles**
+- Control Panel module published on install/update by default (Installer opt-out remains)
+- Requires `com_content` manage access; list/module filtered by view levels; per-article edit/state ACL
+
+**Maintenance**
+- Removed obsolete `imagedestroy` calls (PHP 8 GdImage GC)
+- PHPUnit coverage for `ArticleListHelper`, `DisplayResolver`, and `ImageProcessor::cleanPrefix`
+
+### From 2.2.1
 
 **Social Share**
-- Icons only display mode (clean icon buttons without text labels)
-- Color theme: Default (network colours), or Red / Blue / Green / Orange / Yellow / Gray / Black for all buttons
-- Hub shows human-readable plugin status labels
+- Icons only display mode; color themes; human-readable hub status labels
 
-**Authors**
-- Admin list checkboxes so Edit/Delete toolbar selection works (profiles and groups)
-- Fixed delete return-type mismatch with Joomla AdminController
-- Missing `N_ITEMS_*` language strings for delete/publish messages
-
-**Joomla 7 prep**
-- Article Photo uses application `getInput()`
-- Authors loads users via `UserFactoryInterface`
+**Authors / Joomla 7 prep**
+- Admin list checkboxes; delete return-type fix; `getInput()` / `UserFactoryInterface`
 
 ### From 2.2.0
 
 **Schema**
-- Dedicated Schema app (`com_devartarticletools_schema`) under Article Tools
-- Default **Article** JSON-LD for all articles (enabled on install)
-- New rules override specific articles or categories: Article / Service / Product / WebPage
-- Product emits nested `brand` + `offers`; Service nests `provider`
-- Suite-owned ItemSelect article picker (no DevArt Slider dependency)
-- Competing Article JSON-LD from other extensions is stripped when a non-Article override is active
+- Dedicated Schema app with Article / Service / Product / WebPage rules and suite ItemSelect picker
 
-### From 2.1.1
+### From 2.1.x
 
-**Social Cards**
-- Templates: **Split**, **Strips**, **Arrow**, **Slant** (native PHP GD only)
-- Overlay and Clean polish with Color Themes, Yes/No switchers, accent line, collision avoidance
-- Title uppercase switcher (Greek tonos removed on capitals)
-
-### From 2.1.0
-
-**Core article tools**
-- **Positions / Intro** — `inside1` and `inside2` module positions inside articles; optional intro typography
-- **Article Photo** — server-side image generation and administrator workflow
-- **Social Cards** — Open Graph image cards for articles
-- **Recent Articles** — bounded fast administrator article list
-- **Social Share** — frontend share buttons with Open Graph metadata
-- **Authors** — groups, profiles, virtual authors, SEF pages, list/card layouts
-
-**Administrator experience**
-- Suite dashboard hub with Settings, Schema, and Legacy Migration
-- Each child app has its own Options, ACL, and enable/disable state
-- Recent Articles module placed on Control Panel on install (publish opt-in in **Recent Articles → Options → Installer**)
-
-**Languages**
-- Package language packs for en-GB, el-GR, fr-FR, de-DE, es-ES, it-IT, pt-PT, cs-CZ, nl-NL, pl-PL, ru-RU, uk-UA, ja-JP, tr-TR, and zh-CN
-
-**Security and stability**
-- Schema and Open Graph loaders respect published state, access levels, and publish windows
-- Legacy DevArt Article Photo, Social Cards, and Backend Tools are detected but never silent-uninstalled
+**Core suite**
+- Positions / Intro, Article Photo, Social Cards, Recent Articles, Social Share, Authors
+- 15 language packs; legacy extensions detected but never silent-uninstalled
 
 ---
 
@@ -113,7 +100,7 @@ Package ID: `pkg_devartarticletools`
 
 Download the latest release:
 
-[`pkg_devartarticletools_v2.2.1.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.2.1/pkg_devartarticletools_v2.2.1.zip)
+[`pkg_devartarticletools_v2.2.2.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.2.2/pkg_devartarticletools_v2.2.2.zip)
 
 Install via **System → Install → Extensions**.
 

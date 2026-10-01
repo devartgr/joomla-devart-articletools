@@ -5,6 +5,40 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.2.2</version>
+
+        <security>
+            <item>Schema JSON-LD: encode with JSON_HEX_* to prevent script breakout from titles and payloads</item>
+            <item>Authors: allow only http/https/mailto schemes for website and social profile links</item>
+            <item>Article Photo / Social Cards: confine media paths to images/ with realpath checks</item>
+            <item>Authors / Schema / Open Graph: require published categories and matching access (and language when multilingual) before listing or emitting metadata</item>
+        </security>
+
+        <change>
+            <item>Article Photo: validate source/overlay size and megapixels before GD decode; cap intermediate canvas; base_folder forced under images/</item>
+            <item>Authors: apply publish window and access filters in the ID query before LIMIT for consistent pagination; hide blocked Joomla users</item>
+            <item>Content plugins: load site CSS/JS via WebAssetManager media packages instead of inline style/script declarations</item>
+            <item>Schema / Open Graph / Social Share: emit absolute article URLs via Route without query/fragment; fallback keeps article identity when SEF collapses to site root</item>
+            <item>Recent Articles: publish the administrator Control Panel module by default on package install/update (Installer option still allows opt-out)</item>
+            <item>Schema / Open Graph: share VisibleArticleLoader with per-request memo (one visibility-filtered article query per id/user/language)</item>
+            <item>Recent / Authors: cache information_schema index probes via SchemaIndexProbe (request memo + Joomla callback cache; cleared after CREATE INDEX)</item>
+            <item>Recent Articles: require com_content manage access, filter list/module by view levels, gate edit links and publish/featured actions per article ACL</item>
+            <item>Article Photo / Social Cards: remove obsolete imagedestroy calls (PHP 8 GdImage GC)</item>
+            <item>Schema / Open Graph plugins: skip VisibleArticleLoader when the suite shell component is missing or disabled</item>
+            <item>Repository: PHPUnit coverage for ArticleListHelper, DisplayResolver, and ImageProcessor::cleanPrefix</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.2.zip over 2.2.1</item>
+            <item>Article Photo default max source megapixels remains 24 (Options max 40); source uploads capped at 15 MB</item>
+            <item>SHA-256: 2ef1a6e329b8f7bcdcefa1d449ff931964fdabf14cdb125bfda8d36399d8f61c</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.2.1</version>
 
         <addition>
