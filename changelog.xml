@@ -26,13 +26,14 @@
             <item>Article Photo / Social Cards: remove obsolete imagedestroy calls (PHP 8 GdImage GC)</item>
             <item>Schema / Open Graph plugins: skip VisibleArticleLoader when the suite shell component is missing or disabled</item>
             <item>Repository: PHPUnit coverage for ArticleListHelper, DisplayResolver, and ImageProcessor::cleanPrefix</item>
+            <item>Authors / Schema / Recent: replace LegacyErrorHandlingTrait setError/getError with RuntimeException (Joomla 7 prep)</item>
         </change>
 
         <note>
             <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
             <item>Install pkg_devartarticletools_v2.2.2.zip over 2.2.1</item>
             <item>Article Photo default max source megapixels remains 24 (Options max 40); source uploads capped at 15 MB</item>
-            <item>SHA-256: 2ef1a6e329b8f7bcdcefa1d449ff931964fdabf14cdb125bfda8d36399d8f61c</item>
+            <item>SHA-256: 5f05af98f33bec062aee801e71a3fd66f70ccae048408618b96137adb36d4946</item>
         </note>
     </changelog>
 
