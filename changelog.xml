@@ -5,6 +5,24 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.2.4</version>
+
+        <fix>
+            <item>Recent Articles: permanent Empty Trash delete continues in automatic chunks of 10 articles per request (avoids Cloudflare 524 while allowing any selection size)</item>
+            <item>Recent Articles: unused-image cleanup checks only the images JSON field (not introtext/fulltext HTML LIKE scans) and caps paths per request</item>
+            <item>Recent Articles: faster list ACL via Super User / component-level permission short-circuit (avoids per-row article asset checks when not needed)</item>
+        </fix>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.4.zip over 2.2.3</item>
+            <item>SHA-256: 11e760cfefa8180f01353312c3b74e273d423871727bfca70ea559eae22ddfb4</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.2.3</version>
 
         <addition>
@@ -53,7 +71,7 @@
             <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
             <item>Install pkg_devartarticletools_v2.2.2.zip over 2.2.1</item>
             <item>Article Photo default max source megapixels remains 24 (Options max 40); source uploads capped at 15 MB</item>
-            <item>SHA-256: 5f05af98f33bec062aee801e71a3fd66f70ccae048408618b96137adb36d4946</item>
+            <item>SHA-256: 11e760cfefa8180f01353312c3b74e273d423871727bfca70ea559eae22ddfb4</item>
         </note>
     </changelog>
 
