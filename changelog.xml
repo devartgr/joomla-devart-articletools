@@ -5,6 +5,26 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.2.3</version>
+
+        <addition>
+            <item>Recent Articles: optional delete of unused article images under images/ when permanently deleting from Trash (Options, default Off; skips files still referenced by other articles)</item>
+        </addition>
+
+        <fix>
+            <item>Recent Articles: remove private getRedirectUrlToList() that conflicted with Joomla 6.1 AdminController (Compile Error on unpublish/trash/publish/featured/delete)</item>
+        </fix>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.3.zip over 2.2.2</item>
+            <item>SHA-256: 9aca97319ebb0329f121edc76b1b5da069e4747841e21de616ade074c690dd33</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.2.2</version>
 
         <security>

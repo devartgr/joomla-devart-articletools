@@ -4,7 +4,7 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-2.2.2-orange)
+![Release](https://img.shields.io/badge/Version-2.2.3-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -19,11 +19,17 @@ Designed for reliability, performance, Joomla-native architecture, and safe coex
 
 ---
 
-## Version 2.2.2
+## Version 2.2.3
 
-DevArt Article Tools **2.2.2** is the current **public** release (hardening).
+DevArt Article Tools **2.2.3** is the current **public** release.
 
-### Highlights in 2.2.2
+### Highlights in 2.2.3
+
+**Recent Articles**
+- Optional delete of unused article images under `images/` when permanently deleting from Trash (Options, default Off; skips files still referenced by other articles)
+- Fix: removed private `getRedirectUrlToList()` that conflicted with Joomla 6.1 `AdminController` (Compile Error on unpublish / trash / publish / featured / delete)
+
+### From 2.2.2
 
 **Security**
 - Schema JSON-LD encoded with `JSON_HEX_*`
@@ -37,14 +43,11 @@ DevArt Article Tools **2.2.2** is the current **public** release (hardening).
 - Shared `VisibleArticleLoader` with per-request memo for Schema + Open Graph
 - Cached `information_schema` index probes (`SchemaIndexProbe`)
 - Schema / Open Graph skip the loader when the suite shell component is missing
+- Replaced LegacyErrorHandlingTrait `setError` / `getError` with `RuntimeException`
 
 **Recent Articles**
 - Control Panel module published on install/update by default (Installer opt-out remains)
 - Requires `com_content` manage access; list/module filtered by view levels; per-article edit/state ACL
-
-**Maintenance**
-- Removed obsolete `imagedestroy` calls (PHP 8 GdImage GC)
-- PHPUnit coverage for `ArticleListHelper`, `DisplayResolver`, and `ImageProcessor::cleanPrefix`
 
 ### From 2.2.1
 
@@ -100,23 +103,23 @@ Package ID: `pkg_devartarticletools`
 
 Download the latest release:
 
-[`pkg_devartarticletools_v2.2.2.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.2.2/pkg_devartarticletools_v2.2.2.zip)
+[`pkg_devartarticletools_v2.2.3.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.2.3/pkg_devartarticletools_v2.2.3.zip)
 
 Install via **System → Install → Extensions**.
 
 Do **not** install the old standalone `plg_content_devartarticletools_v*.zip` on new sites.
 
-### Upgrade from 2.2.0
+### Upgrade from 2.2.2
 
-Install **`pkg_devartarticletools_v2.2.1.zip`** over 2.2.0 (Extensions → Install, or Joomla Update).
+Install **`pkg_devartarticletools_v2.2.3.zip`** over 2.2.2 (Extensions → Install, or Joomla Update).
 
-### Upgrade from 2.1.1
+### Upgrade from 2.2.1 / 2.2.0
 
-Install **`pkg_devartarticletools_v2.2.1.zip`** over 2.1.1 (or update stepwise via Joomla Update).
+Install **`pkg_devartarticletools_v2.2.3.zip`** over the previous suite package (or update stepwise via Joomla Update).
 
-### Upgrade from 2.1.0
+### Upgrade from 2.1.1 / 2.1.0
 
-Install **`pkg_devartarticletools_v2.2.1.zip`** over 2.1.0 (or update stepwise via Joomla Update).
+Install **`pkg_devartarticletools_v2.2.3.zip`** over 2.1.x (or update stepwise via Joomla Update).
 
 ### Upgrade from plugin 1.0.3
 
@@ -202,12 +205,12 @@ Repository validation does not replace Joomla runtime QA.
 
 ---
 
-## Integrity (2.2.1)
+## Integrity (2.2.3)
 
 | | |
 |---|---|
-| **File** | `pkg_devartarticletools_v2.2.1.zip` |
-| **SHA-256** | `aa5f73cf188ce4bd3cc6a183ed0b27c30849399c949c8c3b7a106e62dbffe436` |
+| **File** | `pkg_devartarticletools_v2.2.3.zip` |
+| **SHA-256** | `9aca97319ebb0329f121edc76b1b5da069e4747841e21de616ade074c690dd33` |
 
 ---
 
