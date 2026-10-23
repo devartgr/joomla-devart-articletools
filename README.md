@@ -4,7 +4,7 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-2.2.4-orange)
+![Release](https://img.shields.io/badge/Version-2.2.5-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -19,11 +19,17 @@ Designed for reliability, performance, Joomla-native architecture, and safe coex
 
 ---
 
-## Version 2.2.4
+## Version 2.2.5
 
-DevArt Article Tools **2.2.4** is the current **public** release.
+DevArt Article Tools **2.2.5** is the current **public** release.
 
-### Highlights in 2.2.4
+### Highlights in 2.2.5
+
+**Clean install**
+- Recent / Authors load `SchemaIndexProbe` and `MediaPathHelper` via `SuiteShellHelperLoader` when shell PSR-4 autoload is not registered yet (fixes Class not found on Control Panel Recent module)
+- Package postflight clears stale `ComponentHelper` / `_system` cache and warns only when child components are truly missing or disabled (fixes false incomplete-install warning and half-empty dashboard)
+
+### From 2.2.4
 
 **Recent Articles**
 - Permanent Empty Trash delete continues in automatic chunks of 10 articles per request (avoids Cloudflare 524 while allowing any selection size)
@@ -110,23 +116,23 @@ Package ID: `pkg_devartarticletools`
 
 Download the latest release:
 
-[`pkg_devartarticletools_v2.2.4.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.2.4/pkg_devartarticletools_v2.2.4.zip)
+[`pkg_devartarticletools_v2.2.5.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.2.5/pkg_devartarticletools_v2.2.5.zip)
 
 Install via **System → Install → Extensions**.
 
 Do **not** install the old standalone `plg_content_devartarticletools_v*.zip` on new sites.
 
-### Upgrade from 2.2.3
+### Upgrade from 2.2.4
 
-Install **`pkg_devartarticletools_v2.2.4.zip`** over 2.2.3 (Extensions → Install, or Joomla Update).
+Install **`pkg_devartarticletools_v2.2.5.zip`** over 2.2.4 (Extensions → Install, or Joomla Update).
 
-### Upgrade from 2.2.2 / 2.2.1 / 2.2.0
+### Upgrade from 2.2.3 / 2.2.2 / 2.2.1 / 2.2.0
 
-Install **`pkg_devartarticletools_v2.2.4.zip`** over the previous suite package (or update stepwise via Joomla Update).
+Install **`pkg_devartarticletools_v2.2.5.zip`** over the previous suite package (or update stepwise via Joomla Update).
 
 ### Upgrade from 2.1.1 / 2.1.0
 
-Install **`pkg_devartarticletools_v2.2.4.zip`** over 2.1.x (or update stepwise via Joomla Update).
+Install **`pkg_devartarticletools_v2.2.5.zip`** over 2.1.x (or update stepwise via Joomla Update).
 
 ### Upgrade from plugin 1.0.3
 
@@ -212,12 +218,12 @@ Repository validation does not replace Joomla runtime QA.
 
 ---
 
-## Integrity (2.2.4)
+## Integrity (2.2.5)
 
 | | |
 |---|---|
-| **File** | `pkg_devartarticletools_v2.2.4.zip` |
-| **SHA-256** | `11e760cfefa8180f01353312c3b74e273d423871727bfca70ea559eae22ddfb4` |
+| **File** | `pkg_devartarticletools_v2.2.5.zip` |
+| **SHA-256** | `de423c2b8a03c62536c882ab8e3475f6cdc2fe0a87993d18e8c2cb9535844fd2` |
 
 ---
 

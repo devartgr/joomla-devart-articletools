@@ -5,6 +5,23 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.2.5</version>
+
+        <fix>
+            <item>Recent / Authors: load SchemaIndexProbe and MediaPathHelper via SuiteShellHelperLoader when shell PSR-4 autoload is not registered yet (fixes Class not found on clean install / Control Panel Recent module)</item>
+            <item>Package postflight: warn when required child components are missing or disabled after install</item>
+        </fix>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.5.zip over 2.2.4</item>
+            <item>SHA-256: de423c2b8a03c62536c882ab8e3475f6cdc2fe0a87993d18e8c2cb9535844fd2</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.2.4</version>
 
         <fix>
@@ -71,7 +88,7 @@
             <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
             <item>Install pkg_devartarticletools_v2.2.2.zip over 2.2.1</item>
             <item>Article Photo default max source megapixels remains 24 (Options max 40); source uploads capped at 15 MB</item>
-            <item>SHA-256: 11e760cfefa8180f01353312c3b74e273d423871727bfca70ea559eae22ddfb4</item>
+            <item>SHA-256: 5f05af98f33bec062aee801e71a3fd66f70ccae048408618b96137adb36d4946</item>
         </note>
     </changelog>
 
