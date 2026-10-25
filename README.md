@@ -4,7 +4,7 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-2.2.5-orange)
+![Release](https://img.shields.io/badge/Version-2.3.0-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -19,11 +19,37 @@ Designed for reliability, performance, Joomla-native architecture, and safe coex
 
 ---
 
-## Version 2.2.5
+## Version 2.3.0
 
-DevArt Article Tools **2.2.5** is the current **public** release.
+DevArt Article Tools **2.3.0** is the current **public** release (consolidates internal 2.2.6–2.2.41 hardening since 2.2.5).
 
-### Highlights in 2.2.5
+### Highlights in 2.3.0
+
+**Listings**
+- Keyset pagination for created ordering; multi-category and tag / multi-tag menus
+- Large-site query paths (FORCE INDEX with fallbacks; tag map vs content strategies; category visibility without hot-path JOINs)
+- SEO: canonical / rel next|prev; subdirectory absoluteUrl fix; empty cursor “back to start”
+- Guest listing cache + content-plugin invalidation; strategy counts in TTL group `com_devartarticletools_listings_data`
+
+**Authors / Recent**
+- Authors id-keyset + shared ancestor category visibility with Listings
+- Content plugin clears Authors + visibility caches with Listings
+- Recent / Picker without MySQL `FIELD()`; suite `createQuery()` alignment
+
+**Schema / Open Graph**
+- SchemaRuleCache; VisibleArticleLoader bounded fulltext excerpt
+- NewsArticle + BlogPosting types (Article-family fields)
+- OG locale/canonical notes behind Cloudflare Full Page Cache
+
+**Photo / Social Cards**
+- GdMemoryGuard soft checks against PHP `memory_limit` (hard byte/pixel caps unchanged)
+
+**Platform**
+- Suite-wide `createQuery()` (no remaining `getQuery(true)`)
+
+Full item list: package `changelog.xml` version `2.3.0`.
+
+### From 2.2.5
 
 **Clean install**
 - Recent / Authors load `SchemaIndexProbe` and `MediaPathHelper` via `SuiteShellHelperLoader` when shell PSR-4 autoload is not registered yet (fixes Class not found on Control Panel Recent module)

@@ -5,11 +5,710 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.3.0</version>
+
+        <change>
+            <item>Listings: split strategy counts into com_devartarticletools_listings_data (TTL); content plugin still clears view/ACL group only</item>
+            <item>Docs: listings-cache-groups.md</item>
+            <item>Schema: NewsArticle and BlogPosting types (same fields as Article; JSON-LD shaping aligned)</item>
+            <item>Docs: unused-image delete policy (Recent optional cleanup vs Photo/Social Cards)</item>
+            <item>Suite-wide createQuery() sweep: replace remaining getQuery(true) in components, helpers, routers, and install scripts</item>
+            <item>Docs: Open Graph locale/canonical notes behind Cloudflare Full Page Cache (docs/og-cloudflare.md)</item>
+            <item>Listings: empty keyset cursor page shows message + link back to listing start</item>
+            <item>Docs: orphan catid tradeoff on tag listings (NOT IN blocked) — docs/listings-orphan-catid.md</item>
+            <item>GdMemoryGuard: soft PHP memory_limit checks for GD peak (Photo + Social Cards)</item>
+            <item>Photo ImageProcessor + Social Cards validate/render refuse oversized working sets with a clear error</item>
+            <item>VisibleArticleLoader: bounded fulltext excerpt (LEFT 1500) + createQuery; shared OG/Schema article load unchanged</item>
+            <item>SchemaRuleCache: request + callback cache for published rules (load-all ≤2000, else per-key); clear on rule store/delete/publish</item>
+            <item>Authors: ancestor category visibility (shared CategoryVisibilityHelper with Listings)</item>
+            <item>Content plugin: clear Authors + visibility cache groups with Listings on content/category/tag changes</item>
+            <item>Picker + Recent admin: replace MySQL FIELD() with PHP id-order sort; AGENTS version alignment</item>
+            <item>Authors: id keyset pagination for created-desc listings (after/before); createQuery on site model/routes</item>
+            <item>Recent: createQuery() on list/module helpers; replace FIELD() with PHP id-order sort</item>
+            <item>Listings: fix SEO absoluteUrl double install-subdir prefix (canonical/next/prev on subdirectory SEF installs)</item>
+            <item>Listings: AbstractListingHtmlView shared presentation helpers for Category/Categories/Tag/Tags (no query/behaviour change)</item>
+            <item>Listings: skip size COUNT for ordering fallback unless Title/Hits ordering is selected (fixes multi-second Category listing regression)</item>
+            <item>Listings: shared KeysetPager + KeysetCursorCondition (Category/Tag models); behaviour unchanged</item>
+            <item>Listings: tag save/delete clears listings cache (com_tags.tag); publish visibility uses second precision</item>
+            <item>Listings SEO: emit keyset canonical via document custom tag (reliable across templates)</item>
+            <item>Listings: title/hits ordering falls back to created_desc above configurable size threshold (default 20000)</item>
+            <item>Listings: keyset SEO — noindex+canonical on after/before (configurable); rel next/prev; wrong id-alias 301; menu Itemid only when record matches</item>
+            <item>Listings QA: CategoryListHelper unit tests (limits, cursor, ordering, sanitize)</item>
+            <item>Listings QA: expanded explain-listings-index.php gate (category keyset A–C, tag map/content D–E, multi-cat F informational)</item>
+            <item>Listings: FORCE INDEX missing-key fallback (errno 1176) — forget probe and retry once without hint</item>
+            <item>Listings: performance index create uses ALGORITHM=INPLACE, LOCK=NONE with timing/error detail; uninstall drops only idx_devart_cat_state_created_id</item>
+            <item>Listings Tags: bounded tag-map size probe + 30-minute cache (avoids full COUNT on every request)</item>
+            <item>Listings Tags: density-aware map vs content strategy (sparse historical tags stay map-driven)</item>
+            <item>Listings Tags: exclude articles in unpublished or ACL-restricted categories (and blocked ancestors) without JOIN on the hot ID query</item>
+            <item>Listings: defense-in-depth category visibility filter on shared article row load</item>
+            <item>Listings Options: one shared Listing defaults tab (Include subcategories documented as Category-only)</item>
+            <item>Listings Tags: large-tag path uses content created index + EXISTS (avoids multi-second filesort on 70k+ tagged articles)</item>
+            <item>Listings Tags: fix prepared-statement bind when filtering by tag (JOIN instead of nested subquery)</item>
+            <item>Listings: CF-safer keyset cursors (T separator); Tag + Multi-tag menu types</item>
+            <item>Listings: CF-safer keyset cursors (after/before use 2026-10-16T07:15:09_id — no spaces; legacy space form still accepted)</item>
+            <item>Listings: Tag listing and Multi-tag listing menu types (1–5 tags, any-match; separate Options tabs)</item>
+            <item>Listings: FORCE INDEX only for single-category equality — multi-category IN() was causing multi-second filesorts on large tables</item>
+            <item>Listings: do not cap subcategory expansion inside the article query; batch multi-category ancestor ACL check</item>
+            <item>Listings: separate Multi-category listing menu type (1–5 categories; no subcategory expansion)</item>
+            <item>Listings Options: dedicated Multi-category tab (shared display defaults with Category for now; Tags will get own tabs later)</item>
+            <item>Category listing menu no longer embeds extra-category field</item>
+            <item>Listings: explicit additional categories on Category menu (max 5 total with primary; ignores Include subcategories when set)</item>
+            <item>Listings: keyset pagination for created ordering (after/before; deep OFFSET returns 404)</item>
+            <item>Listings: FORCE INDEX for up to 5 categories; cache subcategory ID resolution; single index probe</item>
+            <item>Listings: always select created on keyset id queries; admin large-table DDL note</item>
+            <item>Listings: keyset pagination for created ordering (after/before cursors; no deep OFFSET)</item>
+            <item>Listings: FORCE INDEX for up to 5 categories; cache resolved subcategory IDs; single index probe per request</item>
+            <item>Listings: admin index note for large-table DDL; skip hits column unless hits ordering</item>
+            <item>Listings List layout: title → left meta (date/category/author) → image left + intro with native-style btn-secondary Read more right-aligned</item>
+            <item>Listings Cards layout unchanged</item>
+            <item>Listings: restore List / Cards layout option (Options + menu override)</item>
+            <item>Listings: intro image sizing — fixed frame (crop) or fixed width with proportional height</item>
+            <item>Listings: list-only layout (cards removed); Authors-style row cards CSS</item>
+            <item>Listings: created-date format (default j/n/Y H:i), optional author name, custom read more text + title toggle</item>
+            <item>Listings: Newest/Oldest labels clarify created ordering</item>
+            <item>Listings: enable guest view cache; content plugin clears listings cache on article/category save, delete and state change</item>
+            <item>Listings pagination: show page numbers for the known walk (1…current from limitstart) plus Prev/Next — still no COUNT and no Last/future pages</item>
+            <item>Listings menu group label: DevArt Article Tools → Category listing (admin Display tab language keys fixed)</item>
+            <item>Listings hardening: single-category query without categories JOIN; deterministic ORDER BY id tie-break; minute-rounded publish window; accessible subcategory ID resolution with ancestor checks; c.language filter; offset max → 404; SEF article links via Content RouteHelper; plain excerpt default; router factory wiring + alias cache; view cache disabled until invalidation exists</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.3.0.zip over 2.2.5 (or any 2.2.x)</item>
+            <item>SHA-256: 058edb55c9873a160cd30959231d24a66ccbd65843d79d48cf54891e8adbb01c</item>
+            <item>Public release consolidating internal 2.2.6–2.2.41 hardening</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.41</version>
+
+        <change>
+            <item>Listings: split strategy counts into com_devartarticletools_listings_data (TTL); content plugin still clears view/ACL group only</item>
+            <item>Docs: listings-cache-groups.md</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.41.zip over 2.2.40</item>
+            <item>SHA-256: 9a23f1072204f4ae428e041b7620c9682d7d11f63b525f081c5553481958eeaf</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.40</version>
+
+        <change>
+            <item>Schema: NewsArticle and BlogPosting types (same fields as Article; JSON-LD shaping aligned)</item>
+            <item>Docs: unused-image delete policy (Recent optional cleanup vs Photo/Social Cards)</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.40.zip over 2.2.39</item>
+            <item>SHA-256: 9137b035b0952d912cdc3b518c9e55382611b4447c2ee5098e7f375c0ce7ed9c</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.39</version>
+
+        <change>
+            <item>Suite-wide createQuery() sweep: replace remaining getQuery(true) in components, helpers, routers, and install scripts</item>
+            <item>Docs: Open Graph locale/canonical notes behind Cloudflare Full Page Cache (docs/og-cloudflare.md)</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.39.zip over 2.2.38</item>
+            <item>SHA-256: c5eeff02439682a98cc4208e347abda7ac8d66450edfb3ffdec6cdb78b702452</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.38</version>
+
+        <change>
+            <item>Listings: empty keyset cursor page shows message + link back to listing start</item>
+            <item>Docs: orphan catid tradeoff on tag listings (NOT IN blocked) — docs/listings-orphan-catid.md</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.38.zip over 2.2.37</item>
+            <item>SHA-256: 63cdaa0a8bb3ce9d5ed110c31602295fbcebd4067fc126a3b8f52989a72c2599</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.37</version>
+
+        <change>
+            <item>GdMemoryGuard: soft PHP memory_limit checks for GD peak (Photo + Social Cards)</item>
+            <item>Photo ImageProcessor + Social Cards validate/render refuse oversized working sets with a clear error</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.37.zip over 2.2.36</item>
+            <item>SHA-256: 7c3de198549196c6efa209a3990efa85b192f34940886f1909f6ab91982a3fab</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.36</version>
+
+        <change>
+            <item>VisibleArticleLoader: bounded fulltext excerpt (LEFT 1500) + createQuery; shared OG/Schema article load unchanged</item>
+            <item>SchemaRuleCache: request + callback cache for published rules (load-all ≤2000, else per-key); clear on rule store/delete/publish</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.36.zip over 2.2.35</item>
+            <item>SHA-256: 3cc6ecc7e332676288d5227e93214fb02c1d3c26508ee32de44791c88a232b29</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.35</version>
+
+        <change>
+            <item>Authors: ancestor category visibility (shared CategoryVisibilityHelper with Listings)</item>
+            <item>Content plugin: clear Authors + visibility cache groups with Listings on content/category/tag changes</item>
+            <item>Picker + Recent admin: replace MySQL FIELD() with PHP id-order sort; AGENTS version alignment</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.35.zip over 2.2.34</item>
+            <item>SHA-256: 44850b9453e5b0324242ea013174845e4594d2601e79150dd0cba0c906248954</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.34</version>
+
+        <change>
+            <item>Authors: id keyset pagination for created-desc listings (after/before); createQuery on site model/routes</item>
+            <item>Recent: createQuery() on list/module helpers; replace FIELD() with PHP id-order sort</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.34.zip over 2.2.33</item>
+            <item>SHA-256: 53d2bc96386fa6d827750a22f24f7e47068ee52a9239d98be1b44b84575cceb1</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.33</version>
+
+        <change>
+            <item>Listings: fix SEO absoluteUrl double install-subdir prefix (canonical/next/prev on subdirectory SEF installs)</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.33.zip over 2.2.32</item>
+            <item>SHA-256: b0e87491bbc0d73ef3bb166030364c63ff435bb78b54ea8dba0bf8bd94a761cd</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.32</version>
+
+        <change>
+            <item>Listings: AbstractListingHtmlView shared presentation helpers for Category/Categories/Tag/Tags (no query/behaviour change)</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.32.zip over 2.2.31</item>
+            <item>SHA-256: 106f83cfbf7ec9501fe85df6cc495110823460210e369f913e2e78fc816a88c4</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.31</version>
+
+        <change>
+            <item>Listings: skip size COUNT for ordering fallback unless Title/Hits ordering is selected (fixes multi-second Category listing regression)</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.31.zip over 2.2.30</item>
+            <item>SHA-256: 316c9ca519d4a81f7229175e7bdafc77ff6e37ad42ed1536b5bff63120870dcb</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.30</version>
+
+        <change>
+            <item>Listings: shared KeysetPager + KeysetCursorCondition (Category/Tag models); behaviour unchanged</item>
+            <item>Listings: tag save/delete clears listings cache (com_tags.tag); publish visibility uses second precision</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.30.zip over 2.2.29</item>
+            <item>SHA-256: 3902429cb425d826f1d8165b554cb31d994a08a1cd0ac78c030a8f986f47bb93</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.29</version>
+
+        <change>
+            <item>Listings SEO: emit keyset canonical via document custom tag (reliable across templates)</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.29.zip over 2.2.28</item>
+            <item>SHA-256: 9ac4a20a20cf54aae57dac6075eb63437208c60220851d72915a468d3c93c4b5</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.28</version>
+
+        <change>
+            <item>Listings: title/hits ordering falls back to created_desc above configurable size threshold (default 20000)</item>
+            <item>Listings: keyset SEO — noindex+canonical on after/before (configurable); rel next/prev; wrong id-alias 301; menu Itemid only when record matches</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.28.zip over 2.2.27</item>
+            <item>SHA-256: 20a240fe6192ff2a18c9d587bc78868047b3be1cc8464e9c4bc3967459ea8dc6</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.27</version>
+
+        <change>
+            <item>Listings QA: CategoryListHelper unit tests (limits, cursor, ordering, sanitize)</item>
+            <item>Listings QA: expanded explain-listings-index.php gate (category keyset A–C, tag map/content D–E, multi-cat F informational)</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.27.zip over 2.2.26</item>
+            <item>SHA-256: 061af27215c2badceb82c693ebcce0c812c3a67cbf37a216a5cd586accd42631</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.26</version>
+
+        <change>
+            <item>Listings: FORCE INDEX missing-key fallback (errno 1176) — forget probe and retry once without hint</item>
+            <item>Listings: performance index create uses ALGORITHM=INPLACE, LOCK=NONE with timing/error detail; uninstall drops only idx_devart_cat_state_created_id</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.26.zip over 2.2.25</item>
+            <item>SHA-256: 4c6577308b60e4778264a7b39a991f42d0ec59e07cef2fa60bdf22de58f7ed8c</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.25</version>
+
+        <change>
+            <item>Listings Tags: bounded tag-map size probe + 30-minute cache (avoids full COUNT on every request)</item>
+            <item>Listings Tags: density-aware map vs content strategy (sparse historical tags stay map-driven)</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.25.zip over 2.2.24</item>
+            <item>SHA-256: 232847da19224d55c73f03cda433d0886a851b68b55950f66ac7c9bb65ae82fe</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.24</version>
+
+        <change>
+            <item>Listings Tags: exclude articles in unpublished or ACL-restricted categories (and blocked ancestors) without JOIN on the hot ID query</item>
+            <item>Listings: defense-in-depth category visibility filter on shared article row load</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.24.zip over 2.2.23</item>
+            <item>SHA-256: 065c1a81c477dbd514887bbd069dfcf6af574b3b0160f94ca079e824b1198410</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.23</version>
+
+        <change>
+            <item>Listings Options: one shared Listing defaults tab (Include subcategories documented as Category-only)</item>
+            <item>Listings Tags: large-tag path uses content created index + EXISTS (avoids multi-second filesort on 70k+ tagged articles)</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.23.zip over 2.2.22</item>
+            <item>SHA-256: 69e17824924cf19cfbef123a39e7fa6de628dcbf60357e659e3e29d81a97d3bc</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.22</version>
+
+        <change>
+            <item>Listings Tags: fix prepared-statement bind when filtering by tag (JOIN instead of nested subquery)</item>
+            <item>Listings: CF-safer keyset cursors (T separator); Tag + Multi-tag menu types</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.22.zip over 2.2.20/2.2.21</item>
+            <item>SHA-256: 4997fd9c8f71a8150db367bc014996cd4c7766f84bd0edfc05556bd1fdf3e8ca</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.21</version>
+
+        <change>
+            <item>Listings: CF-safer keyset cursors (after/before use 2026-10-16T07:15:09_id — no spaces; legacy space form still accepted)</item>
+            <item>Listings: Tag listing and Multi-tag listing menu types (1–5 tags, any-match; separate Options tabs)</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.21.zip over 2.2.20</item>
+            <item>SHA-256: 90f8ee62fc44a16323b9ef74aba00d3f7a936063a480880e8b9da6a00e9c2786</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.20</version>
+
+        <change>
+            <item>Listings: FORCE INDEX only for single-category equality — multi-category IN() was causing multi-second filesorts on large tables</item>
+            <item>Listings: do not cap subcategory expansion inside the article query; batch multi-category ancestor ACL check</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.20.zip over 2.2.19</item>
+            <item>SHA-256: deaa15a87de6c389e1a832746a6ea1771ddf6ecf42d481b5ddeda91085c2b49b</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.19</version>
+
+        <change>
+            <item>Listings: separate Multi-category listing menu type (1–5 categories; no subcategory expansion)</item>
+            <item>Listings Options: dedicated Multi-category tab (shared display defaults with Category for now; Tags will get own tabs later)</item>
+            <item>Category listing menu no longer embeds extra-category field</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.19.zip over 2.2.18 (or 2.2.17)</item>
+            <item>SHA-256: 159d6bb2d3e75c0a76103c3ebaa2befc4ba02ea56098e1f1d6350d9ec61708ef</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.18</version>
+
+        <change>
+            <item>Listings: explicit additional categories on Category menu (max 5 total with primary; ignores Include subcategories when set)</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.18.zip over 2.2.17</item>
+            <item>SHA-256: 2d0a5b9820a9ec09bd33a484c514b7fe326176c0ca2d4ed46a07bee04b76a044</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.17</version>
+
+        <change>
+            <item>Listings: keyset pagination for created ordering (after/before; deep OFFSET returns 404)</item>
+            <item>Listings: FORCE INDEX for up to 5 categories; cache subcategory ID resolution; single index probe</item>
+            <item>Listings: always select created on keyset id queries; admin large-table DDL note</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.17.zip over 2.2.16</item>
+            <item>SHA-256: 27193d5768c46c23e83ee3fececd260500e6b49385a7c64e2a01705cbaa5c7f9</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.16</version>
+
+        <change>
+            <item>Listings: keyset pagination for created ordering (after/before cursors; no deep OFFSET)</item>
+            <item>Listings: FORCE INDEX for up to 5 categories; cache resolved subcategory IDs; single index probe per request</item>
+            <item>Listings: admin index note for large-table DDL; skip hits column unless hits ordering</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.16.zip over 2.2.15</item>
+            <item>SHA-256: 9084a329ef79390fa8a5fa368870e7126e0532af6c94ecd3de0b90ef9e2d4d37</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.15</version>
+
+        <change>
+            <item>Listings List layout: title → left meta (date/category/author) → image left + intro with native-style btn-secondary Read more right-aligned</item>
+            <item>Listings Cards layout unchanged</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.15.zip over 2.2.14</item>
+            <item>SHA-256: db9f3609132eebfa975d2a5259b0ed84969289c7be32e42e6ded457f50ce1299</item>
+        </note>
+    </changelog>
+
+
+<changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.14</version>
+
+        <change>
+            <item>Listings: restore List / Cards layout option (Options + menu override)</item>
+            <item>Listings: intro image sizing — fixed frame (crop) or fixed width with proportional height</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.14.zip over 2.2.13</item>
+            <item>SHA-256: b01756b01af8d90fb1a3ab3721825a5ede3a0849a5877043c74e16208502d110</item>
+        </note>
+    </changelog>
+
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.13</version>
+
+        <change>
+            <item>Listings: list-only layout (cards removed); Authors-style row cards CSS</item>
+            <item>Listings: created-date format (default j/n/Y H:i), optional author name, custom read more text + title toggle</item>
+            <item>Listings: Newest/Oldest labels clarify created ordering</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.13.zip over 2.2.12</item>
+            <item>SHA-256: 1a36a478c8bce244f48afbea651c48595488afda88f9f1fcdc501a4a39c8a3f9</item>
+        </note>
+    </changelog>
+
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.12</version>
+
+        <fix>
+            <item>Listings: FORCE INDEX for single-category created ordering when performance index exists; admin Options title + shell submenu Listings language keys</item>
+            <item>Open Graph: reject path traversal and unsafe image schemes</item>
+            <item>Recent: prefer created+id order with content index when present (id-scan remains fallback without index)</item>
+            <item>Authors: offset_max → 404 for deep pagination; FIELD()/picker IDs sanitized</item>
+            <item>Repo script: scripts/explain-listings-index.php read-only EXPLAIN gate</item>
+        </fix>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.12.zip over 2.2.11</item>
+            <item>SHA-256: 407aad9a160f5e12c5dd62484be8182bac5caece04d0743939890c3840a6d667</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.11</version>
+
+        <addition>
+            <item>Listings admin: Create performance index button + status for optional #__content index (never during install)</item>
+        </addition>
+        <change>
+            <item>Listings: enable guest view cache; content plugin clears listings cache on article/category save, delete and state change</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.11.zip over 2.2.10</item>
+            <item>SHA-256: d8a42d5ff592ede38791d6245fc3c91a25ff2c6e64489d6d802e1f9a07079ebc</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.10</version>
+
+        <fix>
+            <item>Listings: clean SEF pagination URLs via Itemid-only Route (no leftover ?view=category&amp;id=…); pagination chrome polish</item>
+        </fix>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.10.zip over 2.2.9</item>
+            <item>SHA-256: 9f64ac09406bcf40c9585e99d14aacf313614b37d4e9fad5910e89af688d604d</item>
+        </note>
+    </changelog>
+
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.9</version>
+
+        <change>
+            <item>Listings pagination: show page numbers for the known walk (1…current from limitstart) plus Prev/Next — still no COUNT and no Last/future pages</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.9.zip over 2.2.8</item>
+            <item>SHA-256: b204a1593f06ff97eb446f970064f46e809f0b917313ad156ac3f998efdeb0b8</item>
+        </note>
+    </changelog>
+
+
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.8</version>
+
+        <fix>
+            <item>Listings pagination: Prev/Next only (Authors pattern). Removes First/Last which broke with synthetic totals and sent Last (>>) to the home page</item>
+        </fix>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.8.zip over 2.2.7</item>
+            <item>SHA-256: 2e82b316b02733118b642431448ff500103d8d1f9d32f63a167d053eb3ac156f</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.2.7</version>
+
+        <addition>
+            <item>Listings: new com_devartarticletools_listings child app with fast frontend Category listing menu (bounded queries, optional subcategories, list/cards layouts; Options defaults + menu overrides)</item>
+        </addition>
+        <change>
+            <item>Listings menu group label: DevArt Article Tools → Category listing (admin Display tab language keys fixed)</item>
+            <item>Listings hardening: single-category query without categories JOIN; deterministic ORDER BY id tie-break; minute-rounded publish window; accessible subcategory ID resolution with ancestor checks; c.language filter; offset max → 404; SEF article links via Content RouteHelper; plain excerpt default; router factory wiring + alias cache; view cache disabled until invalidation exists</item>
+        </change>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.2.7.zip over 2.2.5</item>
+            <item>SHA-256: f5f3b637b0426f575f0897e12743e0460f5d4d4f16f18844332030906daf095e</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.2.5</version>
 
         <fix>
             <item>Recent / Authors: load SchemaIndexProbe and MediaPathHelper via SuiteShellHelperLoader when shell PSR-4 autoload is not registered yet (fixes Class not found on clean install / Control Panel Recent module)</item>
-            <item>Package postflight: warn when required child components are missing or disabled after install</item>
+            <item>Package postflight: clear stale ComponentHelper / _system cache after install, then warn only when child components are truly missing or disabled in the database (fixes false incomplete-install warning and half-empty dashboard)</item>
         </fix>
 
         <note>
