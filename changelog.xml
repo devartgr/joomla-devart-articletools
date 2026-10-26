@@ -5,6 +5,43 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.3.2</version>
+
+        <fix>
+            <item>Listings: native menu DevArt Fast Listing renderer (Category Blog/List) via onAfterRoute swap — native Itemid keeps public URLs</item>
+            <item>New plg_system_devartarticletools_listings: soft switch, namespaced menu params, cache purge on menu/plugin save</item>
+            <item>Remove interim 2.3.1 article SEF bridge (ListingRouteHelper rewrite, nested article forward, Schema build rule)</item>
+            <item>Listings dashboard: native fast-list status, lost-flag diagnosis, Cloudflare purge reminder</item>
+            <item>Listings dashboard + menu-type copy: clear native-routing vs standalone DevArt menu guidance (all locales)</item>
+            <item>Native listings: pagination/canonical base keeps subcategory id under parent Itemid (child path, not parent list)</item>
+            <item>Unit tests: NativeRoutingResolver + listingRouteBaseForMenu</item>
+        </fix>
+        <note>
+            <item>Soft-disable “Use DevArt on native menus” to return to Joomla lists without losing DevArt params; avoid saving menus while the listings system plugin is fully disabled</item>
+            <item>plg_system_devartarticletools_listings installs enabled (unlike Schema/Open Graph); soft switch is the normal off path</item>
+            <item>Tags list swap and automatic menu creation are out of scope for 2.3.2</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
+        <version>2.3.1</version>
+
+        <fix>
+            <item>Interim: Listings article SEF under category menus when no com_content category menu exists (superseded by 2.3.2 native renderer)</item>
+            <item>Interim: article view forward to com_content + Schema SiteRouter build rewrite (removed in 2.3.2)</item>
+            <item>Listings Router: id-keyed category/tag segments; router name devartarticletools_listings</item>
+            <item>Listings: admin dashboard header banner (devart-listings.webp)</item>
+        </fix>
+        <note>
+            <item>2.3.1 was an interim bridge; upgrade to 2.3.2 for native URL ownership without a custom article router</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.3.0</version>
 
         <change>

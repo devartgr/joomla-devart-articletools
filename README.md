@@ -4,7 +4,7 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-2.3.0-orange)
+![Release](https://img.shields.io/badge/Version-2.3.2-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -13,17 +13,27 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 DevArt Article Tools is a production **package** for Joomla 6 editorial websites: news portals, magazines, publishers, and high-traffic content sites.
 
-The suite ships one shell component, six child components, four plugins, and one administrator module. Positions and Intro still run through the familiar content plugin (`plg_content_devartarticletools`).
+The suite ships one shell component, seven child components (including Listings), five plugins, and one administrator module. Positions and Intro still run through the familiar content plugin (`plg_content_devartarticletools`).
 
 Designed for reliability, performance, Joomla-native architecture, and safe coexistence with legacy DevArt products.
 
 ---
 
-## Version 2.3.0
+## Version 2.3.2
 
-DevArt Article Tools **2.3.0** is the current **public** release (consolidates internal 2.2.6–2.2.41 hardening since 2.2.5).
+DevArt Article Tools **2.3.2** is the current **public** release.
 
-### Highlights in 2.3.0
+### Highlights in 2.3.2
+
+**Listings — native routing**
+- Native Category Blog/List menus own public URLs and Itemid
+- Optional DevArt Fast Listing on the same menu (`plg_system_devartarticletools_listings`, soft switch)
+- Articles always use `com_content` / `ContentRouteHelper` (no custom article router)
+- Subcategory pagination stays on the child path under a flagged parent
+- Standalone DevArt Category / Multi-category / Tag / Multi-tag menus remain for special lists
+- Operator guidance on the Listings dashboard (all locales)
+
+### From 2.3.0
 
 **Listings**
 - Keyset pagination for created ordering; multi-category and tag / multi-tag menus
@@ -130,10 +140,12 @@ Package ID: `pkg_devartarticletools`
 | `com_devartarticletools_socialshare` | Component | Social Share and Open Graph options |
 | `com_devartarticletools_authors` | Component | Authors |
 | `com_devartarticletools_schema` | Component | Schema rules and defaults |
+| `com_devartarticletools_listings` | Component | Fast category / multi-category / tag listings |
 | `plg_content_devartarticletools` | Content plugin | Positions / Intro runtime |
 | `plg_content_devartarticletools_socialshare` | Content plugin | Social Share buttons |
 | `plg_system_devartarticletools` | System plugin | Article JSON-LD schema |
 | `plg_system_devartarticletools_opengraph` | System plugin | Open Graph metadata |
+| `plg_system_devartarticletools_listings` | System plugin | Native-menu → Listings HTML swap |
 | `mod_devartarticletools_recent` | Administrator module | Recent Articles Control Panel widget |
 
 ---
@@ -142,23 +154,25 @@ Package ID: `pkg_devartarticletools`
 
 Download the latest release:
 
-[`pkg_devartarticletools_v2.2.5.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.2.5/pkg_devartarticletools_v2.2.5.zip)
+[`pkg_devartarticletools_v2.3.2.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.3.2/pkg_devartarticletools_v2.3.2.zip)
+
+SHA-256: `1d9ed77175372f3f40c2ba2de6b5a9959479411767c5ff9ef743ca8cd3f2e0ec`
 
 Install via **System → Install → Extensions**.
 
 Do **not** install the old standalone `plg_content_devartarticletools_v*.zip` on new sites.
 
-### Upgrade from 2.2.4
+### Upgrade from 2.3.0 / 2.3.1
 
-Install **`pkg_devartarticletools_v2.2.5.zip`** over 2.2.4 (Extensions → Install, or Joomla Update).
+Install **`pkg_devartarticletools_v2.3.2.zip`** over the previous suite package (or Joomla Update).
 
-### Upgrade from 2.2.3 / 2.2.2 / 2.2.1 / 2.2.0
+### Upgrade from 2.2.x
 
-Install **`pkg_devartarticletools_v2.2.5.zip`** over the previous suite package (or update stepwise via Joomla Update).
+Install **`pkg_devartarticletools_v2.3.2.zip`** over 2.2.x (or update stepwise via Joomla Update).
 
-### Upgrade from 2.1.1 / 2.1.0
+### Upgrade from 2.1.x
 
-Install **`pkg_devartarticletools_v2.2.5.zip`** over 2.1.x (or update stepwise via Joomla Update).
+Install **`pkg_devartarticletools_v2.3.2.zip`** over 2.1.x (or update stepwise via Joomla Update).
 
 ### Upgrade from plugin 1.0.3
 
@@ -244,12 +258,12 @@ Repository validation does not replace Joomla runtime QA.
 
 ---
 
-## Integrity (2.2.5)
+## Integrity (2.3.2)
 
 | | |
 |---|---|
-| **File** | `pkg_devartarticletools_v2.2.5.zip` |
-| **SHA-256** | `de423c2b8a03c62536c882ab8e3475f6cdc2fe0a87993d18e8c2cb9535844fd2` |
+| **File** | `pkg_devartarticletools_v2.3.2.zip` |
+| **SHA-256** | `1d9ed77175372f3f40c2ba2de6b5a9959479411767c5ff9ef743ca8cd3f2e0ec` |
 
 ---
 
