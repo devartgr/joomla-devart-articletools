@@ -5,6 +5,23 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.3.3</version>
+
+        <fix>
+            <item>Authors admin list: pagination footer, searchtools filters (group, status, Joomla/virtual type), list limit and ordering</item>
+            <item>Authors: wire RouterServiceInterface + RouterFactory (Joomla constructor signature) and set router name to com_devartarticletools_authors so dedicated author menus SEF to clean aliases (no leftover ?view=author&amp;profile_id=)</item>
+        </fix>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.3.3.zip over 2.3.2 (or any 2.3.x / 2.2.x)</item>
+            <item>SHA-256: 46bc53a1d8de0e1c0515044158a26f7c2128cacb091c90da49f4d850b4354398</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.3.2</version>
 
         <fix>
