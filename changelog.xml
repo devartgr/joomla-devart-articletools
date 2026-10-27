@@ -5,6 +5,23 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.3.4</version>
+
+        <addition>
+            <item>Positions: optional inside0 module position above the full article image via onContentBeforeDisplay (default Off; layouts that echo beforeDisplayContent before full_image)</item>
+        </addition>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.3.4.zip over 2.3.3 (or any 2.3.x / 2.2.x)</item>
+            <item>SHA-256: a9f26d4dfc34c6f260523c9bee6dbab4ce01e2e141d8252329888aca8c3fb26c</item>
+            <item>Enable inside0 under Article Tools → Settings / Positions Options; assign modules to position inside0</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.3.3</version>
 
         <fix>
