@@ -5,6 +5,29 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.3.5</version>
+
+        <fix>
+            <item>Recent Articles: default created DESC (period All) uses primary-key id scan even when idx_devart_state_created_id exists — avoids FORCE INDEX filesort with state IN (0,1) on large tables</item>
+            <item>Recent Articles: sparse filters (search/category/tag/featured=1) disable id scan; featured=0 stays dense; author-only keeps id scan with author index hint</item>
+            <item>Recent Articles: never FORCE state_created_id with category/author filters; single-category uses cat index when present; FORCE hint fail-closed always adds FROM</item>
+            <item>Recent Articles: performance hints distinguish ascending period-All vs selective-filter cost; intro notes Date descending ≈ newest IDs</item>
+            <item>Recent + Authors install: optional #__content indexes use ALTER … ALGORITHM=INPLACE, LOCK=NONE with CREATE INDEX fallback</item>
+            <item>Listings + Authors: guest Joomla view cache only for first page — no cache entries for after/before/limitstart or arbitrary tmpl (bot cache pollution)</item>
+            <item>Recent permanent delete: batch images-column reference check (one query per chunk instead of per path)</item>
+            <item>PHP 8.5: remove deprecated ReflectionProperty::setAccessible() from package installer and unit tests</item>
+        </fix>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.3.5.zip over 2.3.4 (or any 2.3.x / 2.2.x)</item>
+            <item>SHA-256: 66fcaaaadce5fa70230fb6acd8bc988aff7e7a55a80238589350f7722d58f779</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.3.4</version>
 
         <addition>

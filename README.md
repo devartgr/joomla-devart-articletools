@@ -4,7 +4,7 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-2.3.4-orange)
+![Release](https://img.shields.io/badge/Version-2.3.5-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -19,11 +19,27 @@ Designed for reliability, performance, Joomla-native architecture, and safe coex
 
 ---
 
-## Version 2.3.4
+## Version 2.3.5
 
-DevArt Article Tools **2.3.4** is the current **public** release.
+DevArt Article Tools **2.3.5** is the current **public** release.
 
-### Highlights in 2.3.4
+### Highlights in 2.3.5
+
+**Recent Articles**
+- Default created DESC (period All) uses primary-key id scan even when `idx_devart_state_created_id` exists (avoids FORCE INDEX filesort with `state IN (0,1)`)
+- Sparse filters (search/category/tag/featured=1) disable id scan; featured=0 stays on the fast path; author-only keeps id scan with author index hint
+- Never FORCE `state_created_id` with category/author filters; single-category uses cat index when present; FORCE hint fail-closed
+- Performance hints + intro note that Date descending uses newest IDs for speed
+- Recent/Authors optional indexes: `ALGORITHM=INPLACE, LOCK=NONE` with CREATE INDEX fallback
+- Permanent delete: one batched images-column reference check per chunk
+
+**Listings + Authors**
+- Guest Joomla view cache only for the first page (no entries for `after`/`before`/`limitstart` or arbitrary `tmpl`)
+
+**Hygiene**
+- PHP 8.5: remove deprecated `ReflectionProperty::setAccessible()` from installer and tests
+
+### From 2.3.4
 
 **Positions**
 - Optional `inside0` module position above the full article image (`onContentBeforeDisplay`; default Off)
@@ -166,9 +182,9 @@ Package ID: `pkg_devartarticletools`
 
 Download the latest release:
 
-[`pkg_devartarticletools_v2.3.4.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.3.4/pkg_devartarticletools_v2.3.4.zip)
+[`pkg_devartarticletools_v2.3.5.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.3.5/pkg_devartarticletools_v2.3.5.zip)
 
-SHA-256: `a9f26d4dfc34c6f260523c9bee6dbab4ce01e2e141d8252329888aca8c3fb26c`
+SHA-256: `66fcaaaadce5fa70230fb6acd8bc988aff7e7a55a80238589350f7722d58f779`
 
 Install via **System → Install → Extensions**.
 
@@ -176,15 +192,15 @@ Do **not** install the old standalone `plg_content_devartarticletools_v*.zip` on
 
 ### Upgrade from 2.3.x
 
-Install **`pkg_devartarticletools_v2.3.4.zip`** over the previous suite package (or Joomla Update).
+Install **`pkg_devartarticletools_v2.3.5.zip`** over the previous suite package (or Joomla Update).
 
 ### Upgrade from 2.2.x
 
-Install **`pkg_devartarticletools_v2.3.4.zip`** over 2.2.x (or update stepwise via Joomla Update).
+Install **`pkg_devartarticletools_v2.3.5.zip`** over 2.2.x (or update stepwise via Joomla Update).
 
 ### Upgrade from 2.1.x
 
-Install **`pkg_devartarticletools_v2.3.4.zip`** over 2.1.x (or update stepwise via Joomla Update).
+Install **`pkg_devartarticletools_v2.3.5.zip`** over 2.1.x (or update stepwise via Joomla Update).
 
 ### Upgrade from plugin 1.0.3
 
@@ -270,12 +286,12 @@ Repository validation does not replace Joomla runtime QA.
 
 ---
 
-## Integrity (2.3.4)
+## Integrity (2.3.5)
 
 | | |
 |---|---|
-| **File** | `pkg_devartarticletools_v2.3.4.zip` |
-| **SHA-256** | `a9f26d4dfc34c6f260523c9bee6dbab4ce01e2e141d8252329888aca8c3fb26c` |
+| **File** | `pkg_devartarticletools_v2.3.5.zip` |
+| **SHA-256** | `66fcaaaadce5fa70230fb6acd8bc988aff7e7a55a80238589350f7722d58f779` |
 
 ---
 
