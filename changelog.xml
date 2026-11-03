@@ -5,6 +5,24 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.3.6</version>
+
+        <fix>
+            <item>Article Photo: output is always the selected size (cover crop) — smaller sources are upscaled, larger sources are downscaled</item>
+            <item>Article Photo: Auto preview defaults to On (unchecked state preserved via hidden field)</item>
+            <item>Article Photo: honour JPEG EXIF Orientation on source images before cover crop (mobile portrait/landscape); PNG/WebP and overlays unchanged; EXIF/GPS not copied into output JPG</item>
+        </fix>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.3.6.zip over 2.3.5 (or any 2.3.x / 2.2.x)</item>
+            <item>SHA-256: e2640293e47f1490b903514ba79fc47f8edce8dcfb9b9050243cc865504bd2df</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.3.5</version>
 
         <fix>

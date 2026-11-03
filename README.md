@@ -4,7 +4,7 @@ Joomla 6 article suite for module positions inside articles, intro styling, edit
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-2.3.5-orange)
+![Release](https://img.shields.io/badge/Version-2.3.6-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -19,11 +19,18 @@ Designed for reliability, performance, Joomla-native architecture, and safe coex
 
 ---
 
-## Version 2.3.5
+## Version 2.3.6
 
-DevArt Article Tools **2.3.5** is the current **public** release.
+DevArt Article Tools **2.3.6** is the current **public** release.
 
-### Highlights in 2.3.5
+### Highlights in 2.3.6
+
+**Article Photo**
+- Output is always the selected size (cover crop): smaller sources are upscaled, larger sources are downscaled
+- Auto preview defaults to On
+- JPEG EXIF Orientation is applied on the source image before cover crop (mobile portrait/landscape); PNG/WebP and overlays unchanged; EXIF/GPS are not copied into the output JPG
+
+### From 2.3.5
 
 **Recent Articles**
 - Default created DESC (period All) uses primary-key id scan even when `idx_devart_state_created_id` exists (avoids FORCE INDEX filesort with `state IN (0,1)`)
@@ -182,9 +189,9 @@ Package ID: `pkg_devartarticletools`
 
 Download the latest release:
 
-[`pkg_devartarticletools_v2.3.5.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.3.5/pkg_devartarticletools_v2.3.5.zip)
+[`pkg_devartarticletools_v2.3.6.zip`](https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.3.6/pkg_devartarticletools_v2.3.6.zip)
 
-SHA-256: `66fcaaaadce5fa70230fb6acd8bc988aff7e7a55a80238589350f7722d58f779`
+SHA-256: `e2640293e47f1490b903514ba79fc47f8edce8dcfb9b9050243cc865504bd2df`
 
 Install via **System → Install → Extensions**.
 
@@ -192,15 +199,15 @@ Do **not** install the old standalone `plg_content_devartarticletools_v*.zip` on
 
 ### Upgrade from 2.3.x
 
-Install **`pkg_devartarticletools_v2.3.5.zip`** over the previous suite package (or Joomla Update).
+Install **`pkg_devartarticletools_v2.3.6.zip`** over the previous suite package (or Joomla Update).
 
 ### Upgrade from 2.2.x
 
-Install **`pkg_devartarticletools_v2.3.5.zip`** over 2.2.x (or update stepwise via Joomla Update).
+Install **`pkg_devartarticletools_v2.3.6.zip`** over 2.2.x (or update stepwise via Joomla Update).
 
 ### Upgrade from 2.1.x
 
-Install **`pkg_devartarticletools_v2.3.5.zip`** over 2.1.x (or update stepwise via Joomla Update).
+Install **`pkg_devartarticletools_v2.3.6.zip`** over 2.1.x (or update stepwise via Joomla Update).
 
 ### Upgrade from plugin 1.0.3
 
@@ -286,12 +293,12 @@ Repository validation does not replace Joomla runtime QA.
 
 ---
 
-## Integrity (2.3.5)
+## Integrity (2.3.6)
 
 | | |
 |---|---|
-| **File** | `pkg_devartarticletools_v2.3.5.zip` |
-| **SHA-256** | `66fcaaaadce5fa70230fb6acd8bc988aff7e7a55a80238589350f7722d58f779` |
+| **File** | `pkg_devartarticletools_v2.3.6.zip` |
+| **SHA-256** | `e2640293e47f1490b903514ba79fc47f8edce8dcfb9b9050243cc865504bd2df` |
 
 ---
 
