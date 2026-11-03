@@ -5,6 +5,24 @@
     <changelog>
         <element>pkg_devartarticletools</element>
         <type>package</type>
+        <version>2.3.7</version>
+
+        <fix>
+            <item>Schema: Article/NewsArticle/BlogPosting author auto-filled (rule → Options default author override → created_by_alias → DevArt Authors profile → Joomla user name)</item>
+            <item>Schema Options: Default author is a global override (not fallback); optional Default author URL; Person.url always set (profile URL → Options URL → site homepage) to avoid Google missing-author-url warning</item>
+            <item>VisibleArticleLoader: select created_by / created_by_alias for Schema author resolution</item>
+        </fix>
+
+        <note>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+            <item>Install pkg_devartarticletools_v2.3.7.zip over 2.3.6 (or any 2.3.x / 2.2.x)</item>
+            <item>SHA-256: 9a2a80c6246090eb89fe766ba2a6ed7a02880d1e8847857838850469046b82be</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartarticletools</element>
+        <type>package</type>
         <version>2.3.6</version>
 
         <fix>

@@ -6,12 +6,12 @@
         <element>pkg_devartarticletools</element>
         <type>package</type>
         <client>site</client>
-        <version>2.3.6</version>
+        <version>2.3.7</version>
         <infourl title="DevArt Article Tools">https://github.com/devartgr/joomla-devart-articletools</infourl>
         <downloads>
-            <downloadurl type="full" format="zip">https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.3.6/pkg_devartarticletools_v2.3.6.zip</downloadurl>
+            <downloadurl type="full" format="zip">https://github.com/devartgr/joomla-devart-articletools/releases/download/v2.3.7/pkg_devartarticletools_v2.3.7.zip</downloadurl>
         </downloads>
-        <sha256>e2640293e47f1490b903514ba79fc47f8edce8dcfb9b9050243cc865504bd2df</sha256>
+        <sha256>9a2a80c6246090eb89fe766ba2a6ed7a02880d1e8847857838850469046b82be</sha256>
         <tags>
             <tag>stable</tag>
         </tags>
